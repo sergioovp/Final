@@ -11,7 +11,6 @@ DATA_DIR = "rostros_registrados"
 USERS_FILE = "usuarios.pkl"
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
-
 def guardar_usuario_manual(usuario, contra):
     if os.path.exists(USERS_FILE):
         with open(USERS_FILE, "rb") as f:
