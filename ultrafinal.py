@@ -241,33 +241,37 @@ def centrar_ventana(ventana, ancho, alto):
     x=(anchopantalla// 2)-(ancho// 2)
     y=(alturapantalla// 2)-(alto// 2)
     ventana.geometry(f"{ancho}x{alto}+{x}+{y}")
-# ----------- INTERFAZ PRINCIPAL -----------
+# -----------###INTERFAZ PRINCIPAL###-----------
 pantallainicial = tk.Tk()
 pantallainicial.title("Proyecto Grupo 1: GatOs")
-pantallainicial.geometry("600x500")
-pantallainicial.configure(bg="#222222")
+pantallainicial.configure(bg="#FFFFFF")
 pantallainicial.iconbitmap(logofisi)  
-tabControl = ttk.Notebook(pantallainicial)
-tab_registro = ttk.Frame(tabControl)
-tab_login = ttk.Frame(tabControl)
-tab_creditos = ttk.Frame(tabControl)
-tabControl.add(tab_registro, text='Registro')
-tabControl.add(tab_login, text='Login')
-tabControl.add(tab_creditos, text='Creditos')
-tabControl.pack(expand=1, fill="both")
+tabul = ttk.Notebook(pantallainicial)
+tab_registro = ttk.Frame(tabul)
+tab_login = ttk.Frame(tabul)
+tab_creditos = ttk.Frame(tabul)    
+tabul.add(tab_registro, text='Registro')
+tabul.add(tab_login, text='Login')
+tabul.add(tab_creditos, text='Creditos')
+tabul.pack(expand=1, fill="both")
 ancho_ventana = 400
 alto_ventana = 600
 centrar_ventana(pantallainicial, ancho_ventana, alto_ventana)
-
-# Registro facial
+#CREDITOS:
+tk.Label(tab_creditos, text="Nombres de los integrantes:", font=("Helvetica", 20, "bold")).pack(pady=5)
+tk.Label(tab_creditos, text="Morales Japa  Marlon", font=("Helvetica", 10, "bold")).pack(pady=5)
+tk.Label(tab_creditos, text="Valencia Pastrana Sergio Daniel", font=("Helvetica", 10, "bold")).pack(pady=5)
+tk.Label(tab_creditos, text="Janampa Mayta  Yonatan David", font=("Helvetica", 10, "bold")).pack(pady=5)
+tk.Label(tab_creditos, text="Castillo Flores  Manuel Joaquin", font=("Helvetica", 10, "bold")).pack(pady=5)
+#REGISTRO FACIAL
 tk.Label(tab_registro, text="Grupo 1: GatOs", font=("Helvetica", 20, "bold")).pack(pady=5)
 tk.Label(tab_registro, text="Registro facial (solo usuario):", font=("Helvetica", 10, "bold")).pack(pady=5)
 entradadelusuariofacial = tk.Entry(tab_registro)
 entradadelusuariofacial.pack(pady=2)
 botonregistrofacial = tk.Button(tab_registro, text="Registrar y Capturar Foto", command=registrar_facial)
 botonregistrofacial.pack(pady=5)
-
-# Registro manual
+ 
+#REGISTRO manual
 tk.Label(tab_registro, text="Registro manual (usuario y contraseña):", font=("Arial", 10, "bold")).pack(pady=10)
 tk.Label(tab_registro, text="Usuario:").pack()
 entradadelusuariomanual = tk.Entry(tab_registro)
@@ -293,5 +297,7 @@ entradacontralogin = tk.Entry(tab_login, show="*")
 entradacontralogin.pack()
 botonloginmanual = tk.Button(tab_login, text="Login Manual", command=login_manual)
 botonloginmanual.pack(pady=5)
-
+ancho_ventana = 400
+alto_ventana = 600
+centrar_ventana(pantallainicial, ancho_ventana, alto_ventana)       
 pantallainicial.mainloop()
